@@ -1,6 +1,6 @@
 <template>
 <MyButton> ~ </MyButton>
-<SliderCard> <img src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"> </SliderCard>
+<SliderCard> <img src="https://i.pinimg.com/564x/0a/88/91/0a8891435bff4ce4612d57b811cc40b7.jpg"> </SliderCard>
 <MyButton>></MyButton>
 </template>
 
