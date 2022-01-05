@@ -1,5 +1,6 @@
 <template>
-<SliderCard></SliderCard>
+<MyButton> ~ </MyButton>
+<SliderCard> <img src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"> </SliderCard>
 <MyButton>></MyButton>
 </template>
 
@@ -15,11 +16,14 @@ export default {
 <style lang="scss">
 body {
   margin: 0px;
+  width: 100%;
+  height: 100vh;
 }
 
 #app {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 </style>
