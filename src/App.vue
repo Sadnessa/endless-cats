@@ -1,15 +1,26 @@
 <template>
 <MyButton> ~ </MyButton>
-<SliderCard> <img src="https://i.pinimg.com/564x/0a/88/91/0a8891435bff4ce4612d57b811cc40b7.jpg"> </SliderCard>
+<SliderCard :sliderImg="cats"> </SliderCard>
 <MyButton>></MyButton>
 </template>
 
 <script>
 import MyButton from "./components/MyButton.vue"
 import SliderCard from "./components/SliderCard.vue"
+import { getCat } from "./api/catsapi"
 
 export default {
-  components: { MyButton, SliderCard }
+  components: { MyButton, SliderCard },
+
+  data() {
+    return {
+      cats: []
+    }
+  },
+
+  created() {
+    getCat().then(image => {this.cats.push(image)})
+  }
 }
 </script>
 

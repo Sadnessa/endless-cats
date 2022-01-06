@@ -1,8 +1,20 @@
 <template>
     <div class="card-wrapper">
-        <slot></slot>
+       <div v-for="img in sliderImg" :key="img" class="img-wrapper">
+           <img :src="img">
+           </div> 
     </div>
 </template>
+
+<script>
+export default {
+    props: {
+        sliderImg: {
+            type: Array,
+        },
+    },
+}
+</script>
 
 <style lang="scss" scoped>
 .card-wrapper {
