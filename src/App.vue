@@ -1,7 +1,7 @@
 <template>
 <MyButton> ~ </MyButton>
 <SliderCard :sliderImg="cats"> </SliderCard>
-<MyButton>></MyButton>
+<MyButton @click="nextCat">></MyButton>
 </template>
 
 <script>
@@ -20,6 +20,12 @@ export default {
 
   created() {
     getCat().then(image => {this.cats.push(image)})
+  },
+
+  methods: {
+nextCat() {
+  getCat().then(image => {this.cats.push(image)})
+}
   }
 }
 </script>
