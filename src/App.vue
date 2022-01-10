@@ -1,33 +1,50 @@
 <template>
-<MyButton> ~ </MyButton>
-<SliderCard :sliderImg="cats"> </SliderCard>
-<MyButton @click="nextCat">></MyButton>
+  <MyButton @click="prevCat" v-if="index !== 0"> ~ </MyButton>
+  <SliderCard :sliderImg="cats" :imgIndex="index"> </SliderCard>
+  <MyButton @click="nextCat">></MyButton>
 </template>
 
 <script>
-import MyButton from "./components/MyButton.vue"
-import SliderCard from "./components/SliderCard.vue"
-import { getCat } from "./api/catsapi"
+import MyButton from "./components/MyButton.vue";
+import SliderCard from "./components/SliderCard.vue";
+import { getCat } from "./api/catsapi";
 
 export default {
   components: { MyButton, SliderCard },
 
   data() {
     return {
-      cats: []
-    }
+      cats: [],
+      index: 0,
+    };
   },
 
   created() {
-    getCat().then(image => {this.cats.push(image)})
+    this.loadNewCat();
   },
 
   methods: {
-nextCat() {
-  getCat().then(image => {this.cats.push(image)})
-}
-  }
-}
+    loadNewCat() {
+      getCat().then((image) => {
+        this.cats.push(image);
+      });
+    },
+
+    nextCat() {
+      this.index += 1
+      if (this.index > this.cats.length-1) {
+        this.loadNewCat();
+      }
+    },
+
+    prevCat() {
+      if (this.index === 0) {
+          return
+        }
+        this.index -= 1 
+    },
+  },
+};
 </script>
 
 <style lang="scss">
