@@ -27,8 +27,9 @@ export default {
 
   methods: {
     loadNewCat() {
+      const arrLen = this.cats.push(null) 
       getCat().then((image) => {
-        this.cats.push(image);
+        this.cats[arrLen-1] = (image);
       });
     },
 

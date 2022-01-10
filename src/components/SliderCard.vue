@@ -1,7 +1,10 @@
 <template>
   <div class="card-wrapper">
     <div v-for="img in sliderImg" :key="img" class="img-wrapper" :style="compStyle">
-      <img :src="img" />
+      <div class="loading-wrapper" v-if="img == null">
+          ....................................
+      </div>
+      <img v-else :src="img" />
     </div>
   </div>
 </template>
@@ -44,7 +47,7 @@ export default {
     vertical-align: middle;
     width: 100%;
     height: 100%;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; 
 
     img {
         max-width: 100%;
