@@ -17,5 +17,6 @@
     margin: 30px;
     cursor: pointer;
     user-select: none;
+    z-index: 1;
 }
 </style>

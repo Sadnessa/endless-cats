@@ -1,7 +1,9 @@
 <template>
-  <MyButton @click="prevCat" v-if="index !== 0"> ~ </MyButton>
+  <MyButton class="btn btn--left" @click="prevCat" v-if="index !== 0">
+    ~
+  </MyButton>
   <SliderCard :sliderImg="cats" :imgIndex="index"> </SliderCard>
-  <MyButton @click="nextCat">></MyButton>
+  <MyButton class="btn btn--right" @click="nextCat">></MyButton>
 </template>
 
 <script>
@@ -31,17 +33,17 @@ export default {
     },
 
     nextCat() {
-      this.index += 1
-      if (this.index > this.cats.length-1) {
+      this.index += 1;
+      if (this.index > this.cats.length - 1) {
         this.loadNewCat();
       }
     },
 
     prevCat() {
       if (this.index === 0) {
-          return
-        }
-        this.index -= 1 
+        return;
+      }
+      this.index -= 1;
     },
   },
 };
@@ -59,5 +61,17 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.btn {
+  position: absolute;
+
+  &--left {
+    right: 80%;
+  }
+
+  &--right {
+    left: 80%;
+  }
 }
 </style>
