@@ -39,7 +39,6 @@ export default {
   background: rgb(224, 224, 224);
   border-radius: 20px;
   overflow: hidden;
-  
 
   .scroll {
     width: 100%;
