@@ -15,11 +15,11 @@ export default {
 
   computed: {
     compClass() {
-    if (this.small) {
-        return "btn btn--small" 
-    } else {
-        return "btn"
-    }
+      if (this.small) {
+        return "btn btn--small";
+      } else {
+        return "btn";
+      }
     },
   },
 };
@@ -30,8 +30,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: red;
-  color: black;
+  background: rgba($color: #000000, $alpha: 0.4);
+  color: white;
   border-radius: 50%;
   height: 40px;
   min-width: 40px;
@@ -40,9 +40,16 @@ export default {
   user-select: none;
   z-index: 1;
 
+  &:hover {
+    background: rgba($color: #000000, $alpha: 0.2);
+    color: black;
+    transition: all 0.3s ease-in-out;
+  }
+
   &--small {
-      height: 15px;
-  min-width: 15px;
+    height: 15px;
+    min-width: 15px;
+    margin: 6px;
   }
 }
 </style>
