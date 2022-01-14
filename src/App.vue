@@ -2,17 +2,21 @@
   <MyButton class="btn btn--left" @click="prevCat" v-if="index !== 0">
     ~
   </MyButton>
-  <SliderCard :sliderImg="cats" :imgIndex="index"> </SliderCard>
-  <MyButton class="btn btn--right" @click="nextCat">></MyButton>
+  <SliderCard :sliderImg="cats" :imgIndex="index"></SliderCard>
+  <MyButton class="btn btn--right" @click="nextCat"> 
+    >
+  </MyButton>
+<Slides></Slides>
 </template>
 
 <script>
 import MyButton from "./components/MyButton.vue";
 import SliderCard from "./components/SliderCard.vue";
+import Slides from "./components/Slides.vue"
 import { getCat } from "./api/catsapi";
 
 export default {
-  components: { MyButton, SliderCard },
+  components: { MyButton, SliderCard, Slides },
 
   data() {
     return {
@@ -74,5 +78,10 @@ body {
   &--right {
     left: 80%;
   }
+}
+
+.indicators {
+  position: absolute;
+  top: 85%;
 }
 </style>
