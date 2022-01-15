@@ -6,7 +6,7 @@
       v-for="(n, index) in slideCount"
       :key="n"
       @click="toSlide(index)" 
-    />
+    > {{ index+1 }} </MyButton>
   </div>
 </template>
 
@@ -59,6 +59,8 @@ export default {
   .btn {
     animation: fadeAppear 0.5s linear;
     margin: 6px;
+    padding: 4px;
+    font-size: 14px;
   }
 }
 </style>
