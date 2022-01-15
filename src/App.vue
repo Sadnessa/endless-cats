@@ -4,7 +4,7 @@
   </MyButton>
   <SliderCard :sliderImg="cats" :imgIndex="index"></SliderCard>
   <MyButton class="btn btn--right" @click="nextCat"> > </MyButton>
-  <Slides :slideIndex="index" :slideCount="cats.length"></Slides>
+  <Slides v-model:slideIndex="index" :slideCount="cats.length"></Slides>
 </template>
 
 <script>
