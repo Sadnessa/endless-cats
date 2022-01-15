@@ -67,6 +67,7 @@ export default {
     margin: 6px;
     padding: 4px;
     font-size: 14px;
+    font-weight: bold;
   }
 }
 </style>

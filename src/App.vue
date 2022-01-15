@@ -1,9 +1,11 @@
 <template>
   <MyButton class="btn btn--left" @click="prevCat" v-if="index !== 0">
-    ~
+    <span class="material-icons"> keyboard_double_arrow_left</span>
   </MyButton>
   <SliderCard :sliderImg="cats" :imgIndex="index"></SliderCard>
-  <MyButton class="btn btn--right" @click="nextCat"> > </MyButton>
+  <MyButton class="btn btn--right" @click="nextCat">
+    <span class="material-icons"> keyboard_double_arrow_right </span>
+  </MyButton>
   <Slides v-model:slideIndex="index" :slideCount="cats.length"></Slides>
 </template>
 
