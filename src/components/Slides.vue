@@ -39,11 +39,17 @@ export default {
 <style lang="scss" scoped>
 @keyframes fadeAppear {
   0% {
+    margin: 0;
     opacity: 0;
+    width: 0;
+    min-width: 0;
+    height: 0;
   } 
 
   100% {
     opacity: 1;
+    width: 15px;
+    height: 15px;
   }
 }
 
