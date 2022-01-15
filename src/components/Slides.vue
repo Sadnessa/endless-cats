@@ -37,12 +37,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@keyframes fadeAppear {
+  0% {
+    opacity: 0;
+  } 
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .indicators {
   display: flex;
+  justify-content: center;
   position: absolute;
   top: 85%;
   max-width: 600px;
   width: 100%;
   height: 35px;
+
+  .btn {
+    animation: fadeAppear 0.5s linear;
+  }
 }
 </style>
