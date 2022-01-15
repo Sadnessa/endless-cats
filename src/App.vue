@@ -3,16 +3,14 @@
     ~
   </MyButton>
   <SliderCard :sliderImg="cats" :imgIndex="index"></SliderCard>
-  <MyButton class="btn btn--right" @click="nextCat"> 
-    >
-  </MyButton>
-<Slides></Slides>
+  <MyButton class="btn btn--right" @click="nextCat"> > </MyButton>
+  <Slides :slideIndex="index" :slideCount="cats.length"></Slides>
 </template>
 
 <script>
 import MyButton from "./components/MyButton.vue";
 import SliderCard from "./components/SliderCard.vue";
-import Slides from "./components/Slides.vue"
+import Slides from "./components/Slides.vue";
 import { getCat } from "./api/catsapi";
 
 export default {
@@ -31,9 +29,9 @@ export default {
 
   methods: {
     loadNewCat() {
-      const arrLen = this.cats.push(null) 
+      const arrLen = this.cats.push(null);
       getCat().then((image) => {
-        this.cats[arrLen-1] = (image);
+        this.cats[arrLen - 1] = image;
       });
     },
 
@@ -54,20 +52,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
-body {
-  margin: 0px;
-  width: 100%;
-  height: 100vh;
-}
-
-#app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
+<style lang="scss" scoped>
 .btn {
   position: absolute;
 
@@ -83,5 +68,20 @@ body {
 .indicators {
   position: absolute;
   top: 85%;
+}
+</style>
+
+<style lang="scss">
+body {
+  margin: 0px;
+  width: 100%;
+  height: 100vh;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 </style>
