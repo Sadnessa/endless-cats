@@ -49,7 +49,6 @@ export default {
   &--small {
     height: 15px;
     min-width: 15px;
-    margin: 6px;
   }
 }
 </style>
