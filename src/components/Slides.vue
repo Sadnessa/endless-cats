@@ -58,6 +58,7 @@ export default {
 
   .btn {
     animation: fadeAppear 0.5s linear;
+    margin: 6px;
   }
 }
 </style>

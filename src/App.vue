@@ -55,6 +55,7 @@ export default {
 <style lang="scss" scoped>
 .btn {
   position: absolute;
+  margin: 30px;
 
   &--left {
     right: 80%;

@@ -35,7 +35,6 @@ export default {
   border-radius: 50%;
   height: 40px;
   min-width: 40px;
-  margin: 30px;
   cursor: pointer;
   user-select: none;
   z-index: 1;
@@ -49,7 +48,6 @@ export default {
   &--small {
     height: 15px;
     min-width: 15px;
-    margin: 6px;
   }
 }
 </style>
