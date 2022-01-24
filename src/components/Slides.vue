@@ -66,8 +66,7 @@ export default {
     animation: fadeAppear 0.5s linear;
     margin: 6px;
     padding: 4px;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 12px;
   }
 }
 </style>

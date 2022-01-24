@@ -55,6 +55,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+
 .btn {
   position: absolute;
   margin: 30px;
@@ -82,6 +84,7 @@ body {
 }
 
 #app {
+  font-family: 'Mochiy Pop P One', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
