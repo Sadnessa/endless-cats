@@ -5,6 +5,7 @@
       class="btn"
       v-for="(n, index) in slideCount"
       :key="n"
+      :class = "{ 'btn--active': index == slideIndex }"
       @click="toSlide(index)" 
     > {{ index+1 }} </MyButton>
   </div>
@@ -67,6 +68,13 @@ export default {
     margin: 6px;
     padding: 4px;
     font-size: 12px;
+
+    &--active {
+      color: black;
+      outline: 4px solid rgba($color: #000000, $alpha: 0.4);
+      transition: all 0.5s ease-in-out;
+      background: rgba($color: #000000, $alpha: 0.2);
+    }
   }
 }
 </style>
