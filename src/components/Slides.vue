@@ -3,11 +3,13 @@
     <MyButton
       small
       class="btn"
-      v-for="(n, index) in slideCount"
+      v-for="n in compVisibleInicators"
       :key="n"
-      :class = "{ 'btn--active': index == slideIndex }"
-      @click="toSlide(index)" 
-    > {{ index+1 }} </MyButton>
+      :class="{ 'btn--active': n == slideIndex }"
+      @click="toSlide(n)"
+    >
+      {{ n +1}}
+    </MyButton>
   </div>
 </template>
 
@@ -27,11 +29,42 @@ export default {
       type: Number,
       default: 0,
     },
+
+    visibleIndicatorsCount: {
+      type: Number,
+      default: 6,
+    },
+  },
+
+  computed: {
+    compVisibleInicators() {
+      let firstSlideIndcator = this.slideIndex - this.visibleIndicatorsCount / 2;
+      
+      if (firstSlideIndcator + this.visibleIndicatorsCount > this.slideCount) {
+        firstSlideIndcator = this.slideCount - this.visibleIndicatorsCount;
+      }
+
+      if (firstSlideIndcator < 0) {
+        firstSlideIndcator = 0;
+      }
+
+      let indicatorsArray = new Array(this.visibleIndicatorsCount)
+        .fill(0)
+        .map((arrEl, i) => {
+          return firstSlideIndcator + i;
+        });
+
+      if (this.visibleIndicatorsCount > this.slideCount) {
+        indicatorsArray = indicatorsArray.slice(0, this.slideCount);
+      }
+
+      return indicatorsArray;
+    },
   },
 
   methods: {
     toSlide(toIndex) {
-      this.$emit("update:slideIndex", toIndex) 
+      this.$emit("update:slideIndex", toIndex);
     },
   },
 };
@@ -45,7 +78,7 @@ export default {
     width: 0;
     min-width: 0;
     height: 0;
-  } 
+  }
 
   100% {
     opacity: 1;
