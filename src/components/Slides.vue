@@ -8,7 +8,7 @@
       :class="{ 'btn--active': n == slideIndex }"
       @click="toSlide(n)"
     >
-      {{ n +1}}
+      {{ n === '...' ? n : n +1}}
     </MyButton>
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
 
     visibleIndicatorsCount: {
       type: Number,
-      default: 6,
+      default: 5,
     },
   },
 
@@ -56,6 +56,16 @@ export default {
 
       if (this.visibleIndicatorsCount > this.slideCount) {
         indicatorsArray = indicatorsArray.slice(0, this.slideCount);
+      }
+
+      if (firstSlideIndcator > 0) {
+        indicatorsArray[0] = 0;
+        indicatorsArray[1] = "...";
+      }
+
+      if (firstSlideIndcator < this.slideCount - this.visibleIndicatorsCount) {
+        indicatorsArray[indicatorsArray.length - 1] = this.slideCount-1;
+        indicatorsArray[indicatorsArray.length - 2] = "...";
       }
 
       return indicatorsArray;
