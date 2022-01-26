@@ -11,15 +11,20 @@ export default {
       type: Boolean,
       default: false,
     },
+
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   computed: {
     compClass() {
-      if (this.small) {
-        return "btn btn--small";
-      } else {
-        return "btn";
-      }
+      return {
+        'btn': true,
+        'btn--small': this.small,
+        'btn--disabled': this.disabled,
+      };
     },
   },
 };
@@ -48,6 +53,13 @@ export default {
   &--small {
     height: 15px;
     min-width: 15px;
+  }
+
+  &--disabled {
+    pointer-events: none;
+    cursor: default;
+    background: white;
+    color: rgb(100, 100, 100);
   }
 }
 </style>

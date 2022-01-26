@@ -7,6 +7,7 @@
       :key="n"
       :class="{ 'btn--active': n == slideIndex }"
       @click="toSlide(n)"
+      :disabled="n === '...'"
     >
       {{ n === '...' ? n : n +1}}
     </MyButton>
@@ -32,7 +33,7 @@ export default {
 
     visibleIndicatorsCount: {
       type: Number,
-      default: 5,
+      default: 6,
     },
   },
 
@@ -113,7 +114,7 @@ export default {
     font-size: 12px;
 
     &--active {
-      color: black;
+      color: rgb(48, 48, 48);
       outline: 4px solid rgba($color: #000000, $alpha: 0.4);
       transition: all 0.5s ease-in-out;
       background: rgba($color: #000000, $alpha: 0.2);
