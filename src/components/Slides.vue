@@ -33,13 +33,13 @@ export default {
 
     visibleIndicatorsCount: {
       type: Number,
-      default: 6,
+      default: 13,
     },
   },
 
   computed: {
     compVisibleInicators() {
-      let firstSlideIndcator = this.slideIndex - this.visibleIndicatorsCount / 2;
+      let firstSlideIndcator = this.slideIndex - Math.floor(this.visibleIndicatorsCount / 2);
       
       if (firstSlideIndcator + this.visibleIndicatorsCount > this.slideCount) {
         firstSlideIndcator = this.slideCount - this.visibleIndicatorsCount;
