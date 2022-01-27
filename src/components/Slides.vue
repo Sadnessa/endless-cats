@@ -84,17 +84,22 @@ export default {
 <style lang="scss" scoped>
 @keyframes fadeAppear {
   0% {
-    margin: 0;
     opacity: 0;
-    width: 0;
-    min-width: 0;
-    height: 0;
   }
 
   100% {
     opacity: 1;
-    width: 15px;
-    height: 15px;
+  }
+}
+
+@keyframes fadeAppearFromAbove {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
@@ -105,16 +110,22 @@ export default {
   top: 85%;
   max-width: 600px;
   width: 100%;
-  height: 35px;
+  height: max-content;
 
   .btn {
-    animation: fadeAppear 0.5s linear;
+    animation: fadeAppear 0.3s linear;
     margin: 6px;
     padding: 4px;
     font-size: 12px;
+    min-width: 18px;
+    min-height: 18px;
+
+    &:last-child {
+      animation: fadeAppearFromAbove 0.6s linear;
+    }
 
     &--active {
-      color: rgb(48, 48, 48);
+      color: rgb(68, 68, 68);
       outline: 4px solid rgba($color: #000000, $alpha: 0.4);
       transition: all 0.5s ease-in-out;
       background: rgba($color: #000000, $alpha: 0.2);
