@@ -9,7 +9,7 @@
       @click="toSlide(n)"
       :disabled="n === '...'"
     >
-      {{ n === '...' ? n : n +1}}
+      {{ n === "..." ? n : n + 1 }}
     </MyButton>
   </div>
 </template>
@@ -39,8 +39,9 @@ export default {
 
   computed: {
     compVisibleInicators() {
-      let firstSlideIndcator = this.slideIndex - Math.floor(this.visibleIndicatorsCount / 2);
-      
+      let firstSlideIndcator =
+        this.slideIndex - Math.floor(this.visibleIndicatorsCount / 2);
+
       if (firstSlideIndcator + this.visibleIndicatorsCount > this.slideCount) {
         firstSlideIndcator = this.slideCount - this.visibleIndicatorsCount;
       }
@@ -65,7 +66,7 @@ export default {
       }
 
       if (firstSlideIndcator < this.slideCount - this.visibleIndicatorsCount) {
-        indicatorsArray[indicatorsArray.length - 1] = this.slideCount-1;
+        indicatorsArray[indicatorsArray.length - 1] = this.slideCount - 1;
         indicatorsArray[indicatorsArray.length - 2] = "...";
       }
 

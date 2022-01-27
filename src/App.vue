@@ -6,7 +6,7 @@
   <MyButton class="btn btn--right" @click="nextCat">
     <span class="material-icons"> keyboard_double_arrow_right </span>
   </MyButton>
-  <Slides v-model:slideIndex="index" :slideCount="cats.length"></Slides>
+  <Slides v-model:slideIndex="index" :slideCount="cats.length" :visibleIndicatorsCount="maxIndicators"></Slides>
 </template>
 
 <script>
@@ -22,11 +22,17 @@ export default {
     return {
       cats: [],
       index: 0,
+      maxIndicators: 6,
     };
   },
 
   created() {
     this.loadNewCat();
+  },
+  
+  mounted() {
+    window.addEventListener("resize", this.windowResize);
+    this.windowResize();
   },
 
   methods: {
@@ -49,6 +55,16 @@ export default {
         return;
       }
       this.index -= 1;
+    },
+
+    windowResize() {
+      if (window.innerWidth < 400) {
+        this.maxIndicators = 5;
+      } else if (window.innerWidth < 900) {
+        this.maxIndicators = 7;
+      } else {
+        this.maxIndicators = 17;
+      }
     },
   },
 };
